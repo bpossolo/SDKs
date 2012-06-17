@@ -60,7 +60,7 @@ public abstract class HttpConnection {
 			for (int retry = 0; retry < this.config.getMaxRetry(); retry++) {
 
 				if (retry > 0) {
-					LoggingManager.debug(DefaultHttpConnection.class, " Retry  No : "
+					LoggingManager.debug(HttpConnection.class, " Retry  No : "
 							+ retry + "...");
 					try {
 						Thread.sleep(this.config.getRetryDelay());
@@ -82,7 +82,7 @@ public abstract class HttpConnection {
 					if (responsecode == 200) {
 						successResponse = read(reader);
 						reader.close();
-						LoggingManager.debug(DefaultHttpConnection.class,
+						LoggingManager.debug(HttpConnection.class,
 								"Response : " + successResponse);
 						if (successResponse.length() <= 0) {
 							throw new InvalidResponseDataException(
@@ -106,7 +106,7 @@ public abstract class HttpConnection {
 									Constants.ENCODING_FORMAT));
 							errorResponse = read(reader);
 							reader.close();
-							LoggingManager.severe(DefaultHttpConnection.class,
+							LoggingManager.severe(HttpConnection.class,
 									"Error code : " + responsecode
 											+ " with response : "
 											+ errorResponse);

@@ -6,7 +6,6 @@ import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.URL;
 import java.net.UnknownHostException;
-import java.util.logging.Logger;
 
 import com.paypal.exception.SSLConfigurationException;
 
@@ -19,18 +18,16 @@ import com.paypal.exception.SSLConfigurationException;
  */
 public class GoogleAppEngineHttpConnection extends HttpConnection {
 
-	private static final Logger log = Logger.getLogger(GoogleAppEngineHttpConnection.class.getName());
-	
 	private HttpURLConnection connection;
 
 	@Override
 	public void setupClientSSL(String certPath, String certKey, boolean trustAll) throws SSLConfigurationException {
 		
 		if( certPath != null || certKey != null )
-			log.warning("The PayPal SDK cannot be used with client SSL on Google App Engine; configure the SDK to use a PayPal API Signature instead");
+			LoggingManager.warn(GoogleAppEngineHttpConnection.class, "The PayPal SDK cannot be used with client SSL on Google App Engine; configure the SDK to use a PayPal API Signature instead");
 		
 		if( trustAll )
-			log.warning("The PayPal SDK cannot be configured to trust all certificates when used on Google App Engine. The 'http.TrustAllConnection' config property will be ignored");
+			LoggingManager.warn(GoogleAppEngineHttpConnection.class, "The PayPal SDK cannot be configured to trust all certificates when used on Google App Engine. The 'http.TrustAllConnection' config property will be ignored");
 	}
 
 	@Override
