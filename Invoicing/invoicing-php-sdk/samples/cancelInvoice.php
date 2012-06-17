@@ -22,13 +22,13 @@ $parts = Explode('/', $currentFile);
 $currentFile = $parts[count($parts) - 1];
 $_SESSION['curFile'] = $currentFile;
 
-$logger = new PPLoggingManager('SendInvoice');
+$logger = new PPLoggingManager('CancelInvoice');
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// create request object
 	$requestEnvelope = new RequestEnvelope("en_US");
 	$cancelInvoiceRequest = new CancelInvoiceRequest($requestEnvelope);
 	$cancelInvoiceRequest->invoiceID = $_POST['invoiceID'];
-	$logger->error("created CancelInvoice Object");
+	$logger->info("created CancelInvoice Object");
 	$invoiceService = new InvoiceService();
 	// required in third party permissioning
 	if(($_POST['accessToken']!= null) && ($_POST['tokenSecret'] != null))
@@ -37,14 +37,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$invoiceService->setTokenSecret($_POST['tokenSecret']);
 	}
 	$cancelInvoiceResponse = $invoiceService->CancelInvoice($cancelInvoiceRequest, 'jb-us-seller_api1.paypal.com');
-	$logger->error("Received CancelInvoiceResponse:");
+	$logger->info("Received CancelInvoiceResponse:");
 	var_dump($cancelInvoiceResponse);
 } else {
 ?>
 <form method="POST">
 <div id="apidetails">The CancelInvoice API operation is used to cancel an invoice.</div>
 <div class="params">
-<div class="param_name">InvoiceID</div>
+<div class="param_name">Invoice ID</div>
 <div class="param_value"><input type="text" name="invoiceID" value=""
 	size="50" maxlength="260" /></div>
 </div>
@@ -55,6 +55,6 @@ include('permissions.php');
 <?php
 }
 ?>
-	<a href="index.php" >Home</a>
+<br/><br/><a href="index.php" >Home</a>
 </body>
 </html>

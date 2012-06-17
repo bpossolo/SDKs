@@ -14,7 +14,7 @@ namespace PayPal.PayPalAPIInterfaceService {
 	public partial class PayPalAPIInterfaceServiceService : BasePayPalService{
 
 		private static string serviceName = "PayPalAPIInterfaceService";
-		private static string serviceVersion = "87.0";
+		private static string serviceVersion = "89.0";
 
 		public PayPalAPIInterfaceServiceService() : base(serviceName, serviceVersion) {}
 			/// <summary>

@@ -1,5 +1,9 @@
-PayPal  Java Merchant SDK - 0.7.88
+PayPal  Java Merchant SDK - 0.7.90
 ==================================
+
+Release Date  - 11-Jun-2012
+
+	This release contains wsdl update version 90.0
 
 Release Date  - 17-Apr-2012
 

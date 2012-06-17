@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"  import="java.util.Date,java.text.SimpleDateFormat" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% 
+   SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
+%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -51,9 +54,9 @@
 					</div>
 				</div>
 				<div class="params">
-					<div class="param_name">Date when the invoice is paid</div>
+					<div class="param_name">Date when the invoice as paid</div>
 					<div class="param_value">
-						<input type="text" name="date" value="" size="50" maxlength="260" />
+						<input type="text" name="date" size="50" maxlength="260"  value='<%= dateFormat.format(new java.util.Date()) %>' />
 					</div>
 				</div>
 				<jsp:include page="permissions.jsp">

@@ -26,6 +26,7 @@ import urn.ebay.apis.eBLBaseComponents.AllowedPaymentMethodType;
 import urn.ebay.apis.eBLBaseComponents.OfferDetailsType;
 import urn.ebay.apis.eBLBaseComponents.PaymentActionCodeType;
 import urn.ebay.apis.eBLBaseComponents.PaymentDetailsItemType;
+import urn.ebay.apis.eBLBaseComponents.PaymentReasonType;
 import urn.ebay.apis.eBLBaseComponents.RecurringFlagType;
 import urn.ebay.apis.eBLBaseComponents.SellerDetailsType;
 import urn.ebay.apis.eBLBaseComponents.ShippingServiceCodeType;
@@ -402,6 +403,17 @@ You must set the currencyID attribute to one of the three-character currency cod
 		this.Recurring = value;
 	}
 
+	/**
+	 * Indicates the purpose of this payment like Refund
+	 */
+	private PaymentReasonType PaymentReason;
+	public PaymentReasonType getPaymentReason() {
+		return PaymentReason;
+	}
+	public void setPaymentReason(PaymentReasonType value) {
+		this.PaymentReason = value;
+	}
+
 
 	public PaymentDetailsType() {
 	}
@@ -537,6 +549,10 @@ You must set the currencyID attribute to one of the three-character currency cod
 		if( Recurring != null ) {
 			sb.append("<ebl:Recurring>").append( Recurring.getValue());
 			sb.append("</ebl:Recurring>");
+		}
+		if( PaymentReason != null ) {
+			sb.append("<ebl:PaymentReason>").append( PaymentReason.getValue());
+			sb.append("</ebl:PaymentReason>");
 		}
 		return sb.toString();
 	}
@@ -768,6 +784,11 @@ You must set the currencyID attribute to one of the three-character currency cod
 	}
 		 if(document.getElementsByTagName("Recurring").getLength()!=0){		 if(!isWhitespaceNode(document.getElementsByTagName("Recurring").item(0))){ 
 		 this.Recurring = RecurringFlagType.fromValue(document.getElementsByTagName("Recurring").item(0).getTextContent());
+
+}
+	}
+		 if(document.getElementsByTagName("PaymentReason").getLength()!=0){		 if(!isWhitespaceNode(document.getElementsByTagName("PaymentReason").item(0))){ 
+		 this.PaymentReason = PaymentReasonType.fromValue(document.getElementsByTagName("PaymentReason").item(0).getTextContent());
 
 }
 	}

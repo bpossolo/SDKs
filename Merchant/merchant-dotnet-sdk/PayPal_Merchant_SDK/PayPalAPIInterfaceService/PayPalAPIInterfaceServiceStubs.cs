@@ -19862,6 +19862,19 @@ You must set the currencyID attribute to one of the three-character currency cod
 			}
 		}
 
+		/**
+		 * Indicates the purpose of this payment like Refund
+		 */
+		private PaymentReasonType? PaymentReasonField;
+		public PaymentReasonType? PaymentReason {
+			get {
+				return this.PaymentReasonField;
+			}
+			set {
+				this.PaymentReasonField = value;
+			}
+		}
+
 		public PaymentDetailsType() {
 		}
 
@@ -19996,6 +20009,10 @@ You must set the currencyID attribute to one of the three-character currency cod
 		if( Recurring != null ) {
 			sb.Append("<ebl:Recurring>").Append(EnumUtils.getDescription(Recurring));
 			sb.Append("</ebl:Recurring>");
+		}
+		if( PaymentReason != null ) {
+			sb.Append("<ebl:PaymentReason>").Append(EnumUtils.getDescription(PaymentReason));
+			sb.Append("</ebl:PaymentReason>");
 		}
 		return sb.ToString();
 	}
@@ -20173,6 +20190,11 @@ You must set the currencyID attribute to one of the three-character currency cod
 	}
 		 if(document.GetElementsByTagName("Recurring").Count!=0){		 if(!DeserializationUtils.isWhiteSpaceNode(document.GetElementsByTagName("Recurring")[0])){ 
 		 this.Recurring = (RecurringFlagType)EnumUtils.getValue(document.GetElementsByTagName("Recurring")[0].InnerText,typeof(RecurringFlagType));
+
+}
+	}
+		 if(document.GetElementsByTagName("PaymentReason").Count!=0){		 if(!DeserializationUtils.isWhiteSpaceNode(document.GetElementsByTagName("PaymentReason")[0])){ 
+		 this.PaymentReason = (PaymentReasonType)EnumUtils.getValue(document.GetElementsByTagName("PaymentReason")[0].InnerText,typeof(PaymentReasonType));
 
 }
 	}
@@ -21190,26 +21212,26 @@ Character length and limitations: 127 single-byte alphanumeric characters
 		}
 
 		/**
-		 * Amount of Discount on this Loyality Card		 */
-		private string LoyalityCardDiscountAmountField;
-		public string LoyalityCardDiscountAmount {
+		 * Amount of Discount on this Loyalty Card		 */
+		private string LoyaltyCardDiscountAmountField;
+		public string LoyaltyCardDiscountAmount {
 			get {
-				return this.LoyalityCardDiscountAmountField;
+				return this.LoyaltyCardDiscountAmountField;
 			}
 			set {
-				this.LoyalityCardDiscountAmountField = value;
+				this.LoyaltyCardDiscountAmountField = value;
 			}
 		}
 
 		/**
 		 * Currency of the Discount		 */
-		private string LoyalityCardDiscountCurrencyField;
-		public string LoyalityCardDiscountCurrency {
+		private string LoyaltyCardDiscountCurrencyField;
+		public string LoyaltyCardDiscountCurrency {
 			get {
-				return this.LoyalityCardDiscountCurrencyField;
+				return this.LoyaltyCardDiscountCurrencyField;
 			}
 			set {
-				this.LoyalityCardDiscountCurrencyField = value;
+				this.LoyaltyCardDiscountCurrencyField = value;
 			}
 		}
 
@@ -21292,13 +21314,13 @@ Character length and limitations: 127 single-byte alphanumeric characters
 
 }
 	}
-		 if(document.GetElementsByTagName("LoyalityCardDiscountAmount").Count!=0){		 if(!DeserializationUtils.isWhiteSpaceNode(document.GetElementsByTagName("LoyalityCardDiscountAmount")[0])){ 
-		 this.LoyalityCardDiscountAmount =(string)document.GetElementsByTagName("LoyalityCardDiscountAmount")[0].InnerText;
+		 if(document.GetElementsByTagName("LoyaltyCardDiscountAmount").Count!=0){		 if(!DeserializationUtils.isWhiteSpaceNode(document.GetElementsByTagName("LoyaltyCardDiscountAmount")[0])){ 
+		 this.LoyaltyCardDiscountAmount =(string)document.GetElementsByTagName("LoyaltyCardDiscountAmount")[0].InnerText;
 
 }
 	}
-		 if(document.GetElementsByTagName("LoyalityCardDiscountCurrency").Count!=0){		 if(!DeserializationUtils.isWhiteSpaceNode(document.GetElementsByTagName("LoyalityCardDiscountCurrency")[0])){ 
-		 this.LoyalityCardDiscountCurrency =(string)document.GetElementsByTagName("LoyalityCardDiscountCurrency")[0].InnerText;
+		 if(document.GetElementsByTagName("LoyaltyCardDiscountCurrency").Count!=0){		 if(!DeserializationUtils.isWhiteSpaceNode(document.GetElementsByTagName("LoyaltyCardDiscountCurrency")[0])){ 
+		 this.LoyaltyCardDiscountCurrency =(string)document.GetElementsByTagName("LoyaltyCardDiscountCurrency")[0].InnerText;
 
 }
 	}
@@ -21322,6 +21344,11 @@ Character length and limitations: 127 single-byte alphanumeric characters
 	}
 
 
+	public enum PaymentReasonType {
+[Description("None")]NONE,
+[Description("Refund")]REFUND,
+[Description("ReturnShipment")]RETURNSHIPMENT,
+	}
 	/**
 	 * Contains payment request information for each bucket in the cart.
 	 */

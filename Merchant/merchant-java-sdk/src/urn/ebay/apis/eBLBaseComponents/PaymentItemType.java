@@ -137,23 +137,23 @@ Character length and limitations: 127 single-byte alphanumeric characters
 	}
 
 	/**
-	 * Amount of Discount on this Loyality Card	 */
-	private String LoyalityCardDiscountAmount;
-	public String getLoyalityCardDiscountAmount() {
-		return LoyalityCardDiscountAmount;
+	 * Amount of Discount on this Loyalty Card	 */
+	private String LoyaltyCardDiscountAmount;
+	public String getLoyaltyCardDiscountAmount() {
+		return LoyaltyCardDiscountAmount;
 	}
-	public void setLoyalityCardDiscountAmount(String value) {
-		this.LoyalityCardDiscountAmount = value;
+	public void setLoyaltyCardDiscountAmount(String value) {
+		this.LoyaltyCardDiscountAmount = value;
 	}
 
 	/**
 	 * Currency of the Discount	 */
-	private String LoyalityCardDiscountCurrency;
-	public String getLoyalityCardDiscountCurrency() {
-		return LoyalityCardDiscountCurrency;
+	private String LoyaltyCardDiscountCurrency;
+	public String getLoyaltyCardDiscountCurrency() {
+		return LoyaltyCardDiscountCurrency;
 	}
-	public void setLoyalityCardDiscountCurrency(String value) {
-		this.LoyalityCardDiscountCurrency = value;
+	public void setLoyaltyCardDiscountCurrency(String value) {
+		this.LoyaltyCardDiscountCurrency = value;
 	}
 
 	/**
@@ -288,13 +288,13 @@ Character length and limitations: 127 single-byte alphanumeric characters
 
 }
 	}
-		 if(document.getElementsByTagName("LoyalityCardDiscountAmount").getLength()!=0){		 if(!isWhitespaceNode(document.getElementsByTagName("LoyalityCardDiscountAmount").item(0))){ 
-		 this.LoyalityCardDiscountAmount =(String)document.getElementsByTagName("LoyalityCardDiscountAmount").item(0).getTextContent();
+		 if(document.getElementsByTagName("LoyaltyCardDiscountAmount").getLength()!=0){		 if(!isWhitespaceNode(document.getElementsByTagName("LoyaltyCardDiscountAmount").item(0))){ 
+		 this.LoyaltyCardDiscountAmount =(String)document.getElementsByTagName("LoyaltyCardDiscountAmount").item(0).getTextContent();
 
 }
 	}
-		 if(document.getElementsByTagName("LoyalityCardDiscountCurrency").getLength()!=0){		 if(!isWhitespaceNode(document.getElementsByTagName("LoyalityCardDiscountCurrency").item(0))){ 
-		 this.LoyalityCardDiscountCurrency =(String)document.getElementsByTagName("LoyalityCardDiscountCurrency").item(0).getTextContent();
+		 if(document.getElementsByTagName("LoyaltyCardDiscountCurrency").getLength()!=0){		 if(!isWhitespaceNode(document.getElementsByTagName("LoyaltyCardDiscountCurrency").item(0))){ 
+		 this.LoyaltyCardDiscountCurrency =(String)document.getElementsByTagName("LoyaltyCardDiscountCurrency").item(0).getTextContent();
 
 }
 	}
