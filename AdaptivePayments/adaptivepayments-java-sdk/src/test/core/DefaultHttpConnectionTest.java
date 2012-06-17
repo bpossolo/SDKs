@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 import com.paypal.core.ConfigManager;
 import com.paypal.core.ConnectionManager;
 import com.paypal.core.HttpConfiguration;
-import com.paypal.core.DefaultHttpConnection;
 import com.paypal.core.HttpConnection;
 import com.paypal.exception.SSLConfigurationException;
 
@@ -53,7 +52,7 @@ public class DefaultHttpConnectionTest {
 	@Test(expectedExceptions = InvocationTargetException.class)
 	public void readMethodTest() throws NoSuchMethodException,
 			IllegalAccessException, InvocationTargetException, IOException {
-		Method readMethod = DefaultHttpConnection.class.getDeclaredMethod("read",
+		Method readMethod = HttpConnection.class.getDeclaredMethod("read",
 				BufferedReader.class);
 		readMethod.setAccessible(true);
 		BufferedReader br = null;

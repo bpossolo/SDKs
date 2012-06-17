@@ -18,7 +18,7 @@ import com.paypal.exception.SSLConfigurationException;
 
 public abstract class HttpConnection {
 	
-	protected boolean defaultSSL;
+	protected boolean defaultSSL = true;
 	
 	/**
 	 * Subclasses must set the http configuration in the CreateAndconfigureHttpConnection() method.
