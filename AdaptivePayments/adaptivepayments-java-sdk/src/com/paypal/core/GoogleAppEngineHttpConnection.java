@@ -18,8 +18,6 @@ import com.paypal.exception.SSLConfigurationException;
  */
 public class GoogleAppEngineHttpConnection extends HttpConnection {
 
-	private HttpURLConnection connection;
-
 	@Override
 	public void setupClientSSL(String certPath, String certKey, boolean trustAll) throws SSLConfigurationException {
 		
